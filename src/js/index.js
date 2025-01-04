@@ -44,3 +44,12 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener('resize', () => {
+    // 1. 카메라의 종횡비
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix(); // Camera 업데이트
+
+    // 2. 렌더러의 크기
+    renderer.setSize(window.innerWidth, window.innerHeight);
+})
