@@ -37,4 +37,10 @@ const material = new THREE.MeshStandardMaterial({
 const box = new THREE.Mesh(geometry, material);
 scene.add(box);
 
-renderer.render(scene, camera)
+function animate() {
+    box.rotation.y += 0.01;
+    renderer.render(scene, camera)
+    requestAnimationFrame(animate);
+}
+
+animate();
