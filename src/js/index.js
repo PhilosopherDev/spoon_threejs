@@ -43,7 +43,13 @@ const material = new THREE.MeshStandardMaterial({
 // 육면체
 const geo1 = new THREE.BoxGeometry(1, 1, 1);
 const obj1 = new THREE.Mesh(geo1, material);
-scene.add(obj1);
+// scene.add(obj1);
+
+// 원뿔
+const geo2 = new THREE.ConeGeometry(0.5, 1, 8);
+const obj2 = new THREE.Mesh(geo2, material);
+scene.add(obj2);
+
 
 
 function animate() {
