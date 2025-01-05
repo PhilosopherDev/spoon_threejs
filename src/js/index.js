@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(50,
     $result.clientWidth / $result.clientHeight, 0.1, 1000
 );
 
-camera.position.set(0, 0, 5);
+camera.position.set(2, 2, 2);
 camera.lookAt(0, 0, 0);
 
 // 3. Renderer: Scene+Camera, 화면을 그려주는 역할
@@ -27,8 +27,8 @@ light.position.set(2, 4, 3);
 scene.add(light);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshStandardMaterial({
-    color: 0x2e6ff2
+const material = new THREE.MeshBasicMaterial({
+    color: 0xffaaaa
 });
 const box = new THREE.Mesh(geometry, material);
 scene.add(box);
