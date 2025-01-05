@@ -41,7 +41,13 @@ const standard = new THREE.MeshStandardMaterial({
     // map: // texture
 })
 
-const box = new THREE.Mesh(geometry, standard);
+const physical = new THREE.MeshPhysicalMaterial({
+    color: 0xffaaaa,
+    clearcoat: 0.8,
+    clearcoatRoughness: 0.2,
+})
+
+const box = new THREE.Mesh(geometry, physical);
 scene.add(box);
 
 
