@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(50,
     $result.clientWidth / $result.clientHeight, 0.1, 1000
 );
 
-camera.position.set(2, 2, 2);
+camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
 
 // 3. Renderer: Scene+Camera, 화면을 그려주는 역할
@@ -30,11 +30,21 @@ scene.add(light);
 const geometry = new THREE.DodecahedronGeometry(1);
 const material = new THREE.MeshStandardMaterial({
     color: 0xffaaaa,
+    wireframe: true
 });
 
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
+
+
+// axesHelper
+const axesHelper = new THREE.AxesHelper(5);
+const axesHelper2 = new THREE.AxesHelper(10);
+scene.add(axesHelper);
+
+mesh.add(axesHelper2);
+mesh.position.x = 3
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
