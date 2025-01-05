@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(50,
     $result.clientWidth / $result.clientHeight, 0.1, 1000
 );
 
-camera.position.set(0, 0, 5);
+camera.position.set(2, 2, 2);
 camera.lookAt(0, 0, 0);
 
 // 3. Renderer: Scene+Camera, 화면을 그려주는 역할
@@ -63,7 +63,12 @@ const obj4 = new THREE.Mesh(geo4, material);
 // 평면 
 const geo5 = new THREE.PlaneGeometry(1, 2);
 const obj5 = new THREE.Mesh(geo5, material);
-scene.add(obj5);
+// scene.add(obj5);
+
+// 원 (구랑 다름)
+const geo6 = new THREE.CircleGeometry(1, 8);
+const obj6 = new THREE.Mesh(geo6, material);
+scene.add(obj6);
 
 
 function animate() {
