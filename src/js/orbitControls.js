@@ -29,7 +29,7 @@ scene.add(light);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 const material = new THREE.MeshStandardMaterial({
-    color: 0xffaaaa,
+    // color: 0xffaaaa,
 });
 
 const box = new THREE.Mesh(geometry, material);
@@ -37,6 +37,20 @@ scene.add(box);
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
+// 조작을 설정
+// controls.enableZoom = false;
+// controls.enableRotate = false;
+// controls.enablePan = false; // cmd 누르고 드래그시 움직이던게 안됨
+
+
+// controls.minDistance = 2;
+// controls.maxDistance = 10;
+// controls.maxPolarAngle = Math.PI / 3;
+
+// controls.autoRotate = true;
+// controls.autoRotateSpeed = 10;
+
+controls.enableDamping = true; // 회전시의 관성 적용
 
 function animate() {
     renderer.render(scene, camera)
