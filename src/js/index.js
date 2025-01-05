@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(50,
     $result.clientWidth / $result.clientHeight, 0.1, 1000
 );
 
-camera.position.set(5, 5, 5);
+camera.position.set(0, 0, 15);
 camera.lookAt(0, 0, 0);
 
 // 3. Renderer: Scene+Camera, 화면을 그려주는 역할
@@ -28,34 +28,90 @@ light.position.set(2, 4, 3);
 scene.add(light);
 
 // 한라봉
-const bodyMaterial = new THREE.MeshStandardMaterial({
-    color: 0xff7f00,
-    // wireframe: true
-})
-const bottomGeometry = new THREE.DodecahedronGeometry(2, 1);
-const bottom = new THREE.Mesh(bottomGeometry, bodyMaterial);
-scene.add(bottom);
+// const bodyMaterial = new THREE.MeshStandardMaterial({
+//     color: 0xff7f00,
+//     // wireframe: true
+// })
+// const bottomGeometry = new THREE.DodecahedronGeometry(2, 1);
+// const bottom = new THREE.Mesh(bottomGeometry, bodyMaterial);
+// scene.add(bottom);
 
-const topGeometry = new THREE.TetrahedronGeometry(0.8, 3);
-const top = new THREE.Mesh(topGeometry, bodyMaterial);
-top.position.y = 1.7;
-scene.add(top)
+// const topGeometry = new THREE.TetrahedronGeometry(0.8, 3);
+// const top = new THREE.Mesh(topGeometry, bodyMaterial);
+// top.position.y = 1.7;
+// scene.add(top)
 
 const leafMaterial = new THREE.MeshStandardMaterial({
     color: 0x008000,
     side: THREE.DoubleSide,
 })
 
-const stemGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.4);
-const stem = new THREE.Mesh(stemGeometry, leafMaterial);
-stem.position.y = 2.5;
-scene.add(stem);
+// const stemGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.4);
+// const stem = new THREE.Mesh(stemGeometry, leafMaterial);
+// stem.position.y = 2.5;
+// scene.add(stem);
 
-const leafGeometry = new THREE.SphereGeometry(0.5, 32, 16, 0, Math.PI / 3);
-const leaf = new THREE.Mesh(leafGeometry, leafMaterial);
-leaf.position.set(-0.5, 2.4, -0.1);
-leaf.rotation.z = Math.PI / -2;
-scene.add(leaf);
+// const leafGeometry = new THREE.SphereGeometry(0.5, 32, 16, 0, Math.PI / 3);
+// const leaf = new THREE.Mesh(leafGeometry, leafMaterial);
+// leaf.position.set(-0.5, 2.4, -0.1);
+// leaf.rotation.z = Math.PI / -2;
+// scene.add(leaf);
+
+// 야자수
+const trunkMaterial = new THREE.MeshStandardMaterial({
+    color: 0xa38049
+})
+const trunkGeometry = new THREE.CylinderGeometry(0.8, 1, 1.5);
+
+const trunk1 = new THREE.Mesh(trunkGeometry, trunkMaterial);
+const trunk2 = new THREE.Mesh(trunkGeometry, trunkMaterial);
+const trunk3 = new THREE.Mesh(trunkGeometry, trunkMaterial);
+const trunk4 = new THREE.Mesh(trunkGeometry, trunkMaterial);
+
+trunk2.position.set(0.1, 1.3, 0);
+trunk3.position.set(0.2, 2.5, 0);
+trunk4.position.set(0.3, 3.5, 0);
+
+trunk2.scale.set(0.9, 0.9, 0.9);
+trunk3.scale.set(0.8, 0.8, 0.8);
+trunk4.scale.set(0.8, 0.8, 0.8);
+
+trunk2.rotation.z = THREE.MathUtils.degToRad(-5);
+trunk3.rotation.z = THREE.MathUtils.degToRad(-5);
+trunk4.rotation.z = THREE.MathUtils.degToRad(-2);
+
+scene.add(trunk1);
+scene.add(trunk2);
+scene.add(trunk3);
+scene.add(trunk4);
+
+const leafGeometry = new THREE.SphereGeometry(2, 32, 16, Math.PI / 3, Math.PI / 3);
+const leaf1 = new THREE.Mesh(leafGeometry, leafMaterial);
+const leaf2 = new THREE.Mesh(leafGeometry, leafMaterial);
+const leaf3 = new THREE.Mesh(leafGeometry, leafMaterial);
+const leaf4 = new THREE.Mesh(leafGeometry, leafMaterial);
+
+leaf1.rotation.x = -Math.PI / 2
+leaf2.rotation.x = -Math.PI / 2
+leaf3.rotation.x = -Math.PI / 2
+leaf4.rotation.x = -Math.PI / 2
+
+leaf2.rotation.z = -Math.PI / 2
+leaf3.rotation.z = -Math.PI
+leaf4.rotation.z = Math.PI / 2
+
+leaf1.position.set(0.3, 3.2, 2);
+leaf2.position.set(2.3, 3.2, 0);
+leaf3.position.set(0.3, 3.2, -2);
+leaf4.position.set(-1.7, 3.2, 0);
+
+scene.add(leaf1);
+scene.add(leaf2);
+scene.add(leaf3);
+scene.add(leaf4);
+
+const axes = new THREE.AxesHelper(10);
+scene.add(axes);
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
