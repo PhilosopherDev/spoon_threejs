@@ -29,16 +29,25 @@ const light = new THREE.DirectionalLight(0xffffff);
 light.position.set(2, 4, 3);
 scene.add(light);
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
+// 형태
+// const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+// 재질
 const material = new THREE.MeshStandardMaterial({
     color: 0x2e6ff2
 });
 
-const box = new THREE.Mesh(geometry, material);
-scene.add(box);
+// const box = new THREE.Mesh(geometry, material);
+// scene.add(box);
+
+// 육면체
+const geo1 = new THREE.BoxGeometry(1, 1, 1);
+const obj1 = new THREE.Mesh(geo1, material);
+scene.add(obj1);
+
 
 function animate() {
-    box.rotation.y += 0.01;
+    // box.rotation.y += 0.01;
     renderer.render(scene, camera)
     requestAnimationFrame(animate);
 }
