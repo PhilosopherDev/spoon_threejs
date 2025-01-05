@@ -53,7 +53,13 @@ const obj2 = new THREE.Mesh(geo2, material);
 // 원기둥
 const geo3 = new THREE.CylinderGeometry(0.8, 1, 0.8, 8)
 const obj3 = new THREE.Mesh(geo3, material);
-scene.add(obj3);
+// scene.add(obj3);
+
+// 구
+const geo4 = new THREE.SphereGeometry(0.5);
+const obj4 = new THREE.Mesh(geo4, material);
+scene.add(obj4);
+
 
 function animate() {
     // box.rotation.y += 0.01;
