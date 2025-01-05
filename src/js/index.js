@@ -30,21 +30,28 @@ scene.add(light);
 const geometry = new THREE.DodecahedronGeometry(1);
 const material = new THREE.MeshStandardMaterial({
     color: 0xffaaaa,
-    wireframe: true
 });
 
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
+// 1. 위치
+// mesh.position.x = 1;
+// mesh.position.y = 2;
+mesh.position.set(0, 2, 1);
+
+// 2. 회전
+mesh.rotation.y = THREE.MathUtils.degToRad(30);
+
+// 3. 크기
+mesh.scale.x = 1.2
+mesh.scale.y = 1.2
 
 
 // axesHelper
 const axesHelper = new THREE.AxesHelper(5);
-const axesHelper2 = new THREE.AxesHelper(10);
 scene.add(axesHelper);
 
-mesh.add(axesHelper2);
-mesh.position.x = 3
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
