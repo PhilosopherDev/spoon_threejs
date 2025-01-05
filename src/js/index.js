@@ -46,11 +46,14 @@ const obj1 = new THREE.Mesh(geo1, material);
 // scene.add(obj1);
 
 // 원뿔
-const geo2 = new THREE.ConeGeometry(0.5, 1, 8);
+const geo2 = new THREE.ConeGeometry(0.3, 1, 8);
 const obj2 = new THREE.Mesh(geo2, material);
-scene.add(obj2);
+// scene.add(obj2);
 
-
+// 원기둥
+const geo3 = new THREE.CylinderGeometry(0.8, 1, 0.8, 8)
+const obj3 = new THREE.Mesh(geo3, material);
+scene.add(obj3);
 
 function animate() {
     // box.rotation.y += 0.01;
