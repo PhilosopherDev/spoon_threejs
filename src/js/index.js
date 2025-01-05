@@ -47,7 +47,13 @@ const physical = new THREE.MeshPhysicalMaterial({
     clearcoatRoughness: 0.2,
 })
 
-const box = new THREE.Mesh(geometry, physical);
+const phong = new THREE.MeshPhongMaterial({
+    color: 0xffaaaa,
+    shininess: 100,
+    specular: 0x2e5ff2
+})
+
+const box = new THREE.Mesh(geometry, phong);
 scene.add(box);
 
 
