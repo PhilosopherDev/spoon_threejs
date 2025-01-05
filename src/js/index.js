@@ -27,35 +27,14 @@ const light = new THREE.DirectionalLight(0xffffff);
 light.position.set(2, 4, 3);
 scene.add(light);
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({
+const geometry = new THREE.DodecahedronGeometry(1);
+const material = new THREE.MeshStandardMaterial({
     color: 0xffaaaa,
-    // wireframe: true,
-    transparent: true,
-    opacity: 0.5,
 });
 
-const standard = new THREE.MeshStandardMaterial({
-    color: 0xffaaaa,
-    roughness: 0.2,
-    metalness: 0.8,
-    // map: // texture
-})
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
 
-const physical = new THREE.MeshPhysicalMaterial({
-    color: 0xffaaaa,
-    clearcoat: 0.8,
-    clearcoatRoughness: 0.2,
-})
-
-const phong = new THREE.MeshPhongMaterial({
-    color: 0xffaaaa,
-    shininess: 100,
-    specular: 0x2e5ff2
-})
-
-const box = new THREE.Mesh(geometry, phong);
-scene.add(box);
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
