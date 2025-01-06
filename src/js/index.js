@@ -58,6 +58,10 @@ const leafMaterial = new THREE.MeshStandardMaterial({
 // scene.add(leaf);
 
 // 야자수
+const tree = new THREE.Group();
+
+const trunk = new THREE.Group();
+
 const trunkMaterial = new THREE.MeshStandardMaterial({
     color: 0xa38049
 })
@@ -80,10 +84,14 @@ trunk2.rotation.z = THREE.MathUtils.degToRad(-5);
 trunk3.rotation.z = THREE.MathUtils.degToRad(-5);
 trunk4.rotation.z = THREE.MathUtils.degToRad(-2);
 
-scene.add(trunk1);
-scene.add(trunk2);
-scene.add(trunk3);
-scene.add(trunk4);
+trunk.add(trunk1);
+trunk.add(trunk2);
+trunk.add(trunk3);
+trunk.add(trunk4);
+
+tree.add(trunk);
+
+const leaf = new THREE.Group();
 
 const leafGeometry = new THREE.SphereGeometry(2, 32, 16, Math.PI / 3, Math.PI / 3);
 const leaf1 = new THREE.Mesh(leafGeometry, leafMaterial);
@@ -105,10 +113,14 @@ leaf2.position.set(2.3, 3.2, 0);
 leaf3.position.set(0.3, 3.2, -2);
 leaf4.position.set(-1.7, 3.2, 0);
 
-scene.add(leaf1);
-scene.add(leaf2);
-scene.add(leaf3);
-scene.add(leaf4);
+leaf.add(leaf1);
+leaf.add(leaf2);
+leaf.add(leaf3);
+leaf.add(leaf4);
+
+tree.add(leaf);
+
+scene.add(tree);
 
 const axes = new THREE.AxesHelper(10);
 scene.add(axes);
