@@ -41,6 +41,10 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(0, 2, 2);
 directionalLight.castShadow = true; // 빛에도 적용
 
+// 그림자 해상도
+directionalLight.shadow.mapSize.width = 1024;
+directionalLight.shadow.mapSize.height = 1024;
+
 scene.add(directionalLight);
 
 
