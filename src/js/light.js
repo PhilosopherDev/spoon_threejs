@@ -42,11 +42,18 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(-2, 2, 0);
 directionalLight.target.position.set(0, 2, 0);
-scene.add(directionalLight);
-
+// scene.add(directionalLight);
 
 const dlHelper = new THREE.DirectionalLightHelper(directionalLight, 1, 0xff0000);
-scene.add(dlHelper);
+// scene.add(dlHelper);
+
+// pointLight - 팔면체의 중심에서 모든 방향으로 빛을 발산. 전등 같음. 
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(1, 1, 0);
+scene.add(pointLight);
+
+const plHelper = new THREE.PointLightHelper(pointLight, 1, 0x00ff00);
+scene.add(plHelper);
 
 // OrbitContorls
 const controls = new OrbitControls(camera, renderer.domElement);
