@@ -36,7 +36,17 @@ scene.add(plane);
 
 // ambientLight
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-scene.add(ambientLight);
+// scene.add(ambientLight);
+
+// directionalLight - 광원 (0, 1, 0) -> target (0, 0, 0)
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(-2, 2, 0);
+directionalLight.target.position.set(0, 2, 0);
+scene.add(directionalLight);
+
+
+const dlHelper = new THREE.DirectionalLightHelper(directionalLight, 1, 0xff0000);
+scene.add(dlHelper);
 
 // OrbitContorls
 const controls = new OrbitControls(camera, renderer.domElement);
