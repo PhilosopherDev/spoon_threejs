@@ -45,6 +45,9 @@ directionalLight.castShadow = true; // 빛에도 적용
 directionalLight.shadow.mapSize.width = 1024;
 directionalLight.shadow.mapSize.height = 1024;
 
+// Blur
+directionalLight.shadow.radius = 5;
+
 scene.add(directionalLight);
 
 
