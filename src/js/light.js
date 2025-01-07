@@ -50,10 +50,18 @@ const dlHelper = new THREE.DirectionalLightHelper(directionalLight, 1, 0xff0000)
 // pointLight - 팔면체의 중심에서 모든 방향으로 빛을 발산. 전등 같음. 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(1, 1, 0);
-scene.add(pointLight);
+// scene.add(pointLight);
 
 const plHelper = new THREE.PointLightHelper(pointLight, 1, 0x00ff00);
-scene.add(plHelper);
+// scene.add(plHelper);
+
+// SpotLight - 원뿔형으로 빛이 발산, 각도 조절 가능
+const spotLight = new THREE.SpotLight(0xffffff, 1, 0, Math.PI / 6, 0.5);
+spotLight.position.y = 2;
+scene.add(spotLight);
+
+const slHelper = new THREE.SpotLightHelper(spotLight, 0xff0000);
+scene.add(slHelper);
 
 // OrbitContorls
 const controls = new OrbitControls(camera, renderer.domElement);
