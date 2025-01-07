@@ -58,10 +58,17 @@ const plHelper = new THREE.PointLightHelper(pointLight, 1, 0x00ff00);
 // SpotLight - 원뿔형으로 빛이 발산, 각도 조절 가능
 const spotLight = new THREE.SpotLight(0xffffff, 1, 0, Math.PI / 6, 0.5);
 spotLight.position.y = 2;
-scene.add(spotLight);
+// scene.add(spotLight);
 
 const slHelper = new THREE.SpotLightHelper(spotLight, 0xff0000);
-scene.add(slHelper);
+// scene.add(slHelper);
+
+// HemisphereLight - 위 아래로 서로 다른 빛을 발산
+const hemisphereLight = new THREE.HemisphereLight(0xffaaaa, 0x00ff00);
+scene.add(hemisphereLight);
+
+const hlHelper = new THREE.HemisphereLightHelper(hemisphereLight, 2, 0xff0000);
+scene.add(hlHelper);
 
 // OrbitContorls
 const controls = new OrbitControls(camera, renderer.domElement);
