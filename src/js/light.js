@@ -14,8 +14,7 @@ camera.lookAt(0, 0, 0);
 const renderer = new THREE.WebGLRenderer({
     canvas: $result
 });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+renderer.setSize($result.clientWidth, $result.clientHeight);
 
 
 // 도형
@@ -34,6 +33,10 @@ plane.rotation.x = Math.PI / -2;
 plane.position.y = -1;
 scene.add(plane);
 
+
+// ambientLight
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+scene.add(ambientLight);
 
 // OrbitContorls
 const controls = new OrbitControls(camera, renderer.domElement);
