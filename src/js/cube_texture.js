@@ -25,8 +25,7 @@ const renderer = new THREE.WebGLRenderer({
 // renderer와 canvas 크기 맞춰주기!
 renderer.setSize($result.clientWidth, $result.clientHeight);
 
-const light = new THREE.DirectionalLight(0xffffff);
-light.position.set(2, 4, 3);
+const light = new THREE.AmbientLight(0xffffff);
 scene.add(light);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -34,7 +33,16 @@ const material = new THREE.MeshStandardMaterial({
     color: 0xffaaaa
 })
 
-const mesh = new THREE.Mesh(geometry, material);
+const materials = [
+    new THREE.MeshStandardMaterial({ color: 0xff0000 }),
+    new THREE.MeshStandardMaterial({ color: 0xff8c00 }),
+    new THREE.MeshStandardMaterial({ color: 0xffee00 }),
+    new THREE.MeshStandardMaterial({ color: 0x4de94c }),
+    new THREE.MeshStandardMaterial({ color: 0x3783ff }),
+    new THREE.MeshStandardMaterial({ color: 0x4815aa }),
+]
+
+const mesh = new THREE.Mesh(geometry, materials);
 scene.add(mesh);
 
 
