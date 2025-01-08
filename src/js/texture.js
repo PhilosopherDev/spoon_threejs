@@ -20,6 +20,8 @@ renderer.shadowMap.enabled = true;
 const loader = new THREE.TextureLoader();
 const basecolor = loader.load('../../src/textures/bark/Bark_06_basecolor.jpg');
 const normal = loader.load('../../src/textures/bark/Bark_06_normal.jpg');
+const roughness = loader.load('../../src/textures/bark/Bark_06_roughness.jpg');
+
 
 // 도형
 const geometry = new THREE.SphereGeometry(1);
@@ -28,7 +30,9 @@ const material = new THREE.MeshStandardMaterial({
     map: basecolor,
     normalMap: normal,
     // normalScale: new THREE.Vector2(0, 0),
-    roughness: 0.4
+    roughness: 0.4,
+
+    roughnessMap: roughness,
 })
 
 
