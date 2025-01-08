@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import printTree from "../mesh/tree.js";
 import printOrange from "../mesh/orange.js";
+import printStone from "../mesh/stone.js";
 
 const $result = document.getElementById('result');
 
@@ -39,8 +40,14 @@ scene.add(orange1);
 const tree1 = printTree();
 scene.add(tree1);
 
+const stone1 = printStone();
+stone1.position.x = -3;
+scene.add(stone1);
+
 const axes = new THREE.AxesHelper(10);
 scene.add(axes);
+
+
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
