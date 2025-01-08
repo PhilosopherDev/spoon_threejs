@@ -21,6 +21,7 @@ const loader = new THREE.TextureLoader();
 const basecolor = loader.load('../../src/textures/bark/Bark_06_basecolor.jpg');
 const normal = loader.load('../../src/textures/bark/Bark_06_normal.jpg');
 const roughness = loader.load('../../src/textures/bark/Bark_06_roughness.jpg');
+const height = loader.load('../../src/textures/bark/Bark_06_height.png');
 
 
 // 도형
@@ -33,6 +34,9 @@ const material = new THREE.MeshStandardMaterial({
     roughness: 0.4,
 
     roughnessMap: roughness,
+
+    displacementMap: height,
+    displacementScale: 0.2
 })
 
 
