@@ -17,9 +17,17 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize($result.clientWidth, $result.clientHeight);
 renderer.shadowMap.enabled = true;
 
+const loader = new THREE.TextureLoader();
+const basecolor = loader.load('../../src/textures/bark/Bark_06_basecolor.jpg');
+
 // 도형
 const geometry = new THREE.SphereGeometry(1);
-const material = new THREE.MeshStandardMaterial({ color: 0x2E6FF2 })
+const material = new THREE.MeshStandardMaterial({
+    // color: 0x2E6FF2,
+    map: basecolor,
+})
+
+
 const cube = new THREE.Mesh(geometry, material);
 cube.castShadow = true; // 그림자를 만들 mesh에는 cast
 scene.add(cube);
