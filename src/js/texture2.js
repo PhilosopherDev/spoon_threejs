@@ -40,6 +40,7 @@ scene.add(orange1);
 const tree1 = printTree();
 scene.add(tree1);
 
+// 돌하르방
 const stone1 = printStone();
 stone1.position.x = -3;
 scene.add(stone1);
