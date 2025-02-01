@@ -47,11 +47,15 @@ export default function printTree() {
 
     tree.add(trunk);
 
+    const leafTexture = loader.load('../../src/textures/leaf/leaf_texture.png'); // png 파일이라 이미지 파일의 끝 부분의 검은 부분이 살아 있을 수 있다. 이럴 땐 transparent 를 true 처리를 함께 해준다.
+
     const leaf = new THREE.Group();
 
     const leafMaterial = new THREE.MeshStandardMaterial({
         color: 0x008000,
         side: THREE.DoubleSide,
+        map: leafTexture,
+        transparent: true
     })
 
     const leafGeometry = new THREE.SphereGeometry(2, 32, 16, Math.PI / 3, Math.PI / 3);
