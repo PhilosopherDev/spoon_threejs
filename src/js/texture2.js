@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import printTree from "../mesh/tree.js";
 import printOrange from "../mesh/orange.js";
 import printStone from "../mesh/stone.js";
+import printMountain from "../mesh/mountain.js";
 
 const $result = document.getElementById('result');
 
@@ -47,6 +48,10 @@ scene.add(stone1);
 
 const axes = new THREE.AxesHelper(10);
 scene.add(axes);
+
+// 산
+const mountain1 = printMountain();
+scene.add(mountain1);
 
 
 
