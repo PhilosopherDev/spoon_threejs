@@ -27,8 +27,9 @@ const renderer = new THREE.WebGLRenderer({
 // renderer와 canvas 크기 맞춰주기!
 renderer.setSize($result.clientWidth, $result.clientHeight);
 
-const light = new THREE.DirectionalLight(0xffffff);
-light.position.set(2, 4, 3);
+// const light = new THREE.DirectionalLight(0xffffff);
+// light.position.set(2, 4, 3);
+const light = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(light);
 
 // 한라봉
