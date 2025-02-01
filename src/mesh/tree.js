@@ -2,12 +2,24 @@ import * as THREE from 'three';
 
 export default function printTree() {
     // 야자수
+    const loader = new THREE.TextureLoader();
+    const basecolor = loader.load('../../src/textures/wood/wood_basecolor.jpg');
+    const normal = loader.load('../../src/textures/wood/wood_normal.jpg');
+    const rough = loader.load('../../src/textures/wood/wood_roughness.jpg');
+    const height = loader.load('../../src/textures/wood/wood_height.png');
+
+
     const tree = new THREE.Group();
 
     const trunk = new THREE.Group();
 
     const trunkMaterial = new THREE.MeshStandardMaterial({
-        color: 0xa38049
+        color: 0xa38049,
+        map: basecolor,
+        normalMap: normal,
+        roughnessMap: rough,
+        displacementMap: height,
+        displacementScale: 0.1,
     })
     const trunkGeometry = new THREE.CylinderGeometry(0.8, 1, 1.5);
 
