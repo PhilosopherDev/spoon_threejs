@@ -33,17 +33,18 @@ scene.add(light);
 
 // 한라봉
 const orange1 = printOrange();
-orange1.position.x = 3;
+orange1.position.x = -5;
 orange1.scale.set(0.6, 0.6, 0.6);
 scene.add(orange1);
 
 // 야자수
 const tree1 = printTree();
+tree1.position.x = 5;
 scene.add(tree1);
 
 // 돌하르방
 const stone1 = printStone();
-stone1.position.x = -3;
+stone1.position.x = -10;
 scene.add(stone1);
 
 const axes = new THREE.AxesHelper(10);
