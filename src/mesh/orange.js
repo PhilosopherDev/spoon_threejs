@@ -2,11 +2,19 @@ import * as THREE from 'three';
 
 export default function printOrange() {
     // 한라봉
+    const loader = new THREE.TextureLoader();
+    const basecolor = loader.load('../../src/textures/orange/Orange_001_COLOR.jpg')
+    const normal = loader.load('../../src/textures/orange/Orange_001_NORM.jpg')
+    const rough = loader.load('../../src/textures/orange/Orange_001_ROUGH.jpg')
+
     const orange = new THREE.Group();
 
     const bodyMaterial = new THREE.MeshStandardMaterial({
-        color: 0xff7f00,
-        // wireframe: true
+        color: 0xffb48c,
+        map: basecolor,
+        normalMap: normal,
+        roughness: 0.2,
+        roughnessMap: rough,
     })
     const bottomGeometry = new THREE.DodecahedronGeometry(2, 1);
     const bottom = new THREE.Mesh(bottomGeometry, bodyMaterial);
